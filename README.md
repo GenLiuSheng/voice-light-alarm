@@ -1,10 +1,10 @@
 # 基于 ESP32/Arduino 的语音控制光闹钟灯 V1
 
-> 状态：**立项完成，开发中** ｜ 创建：2026-08-19
+> 状态：**立项完成，开发中** ｜ 创建：2026-08-19 ｜ 主控已定：**ESP32-S3 N16R8**
 
 ## 项目简介
 
-一款支持离线语音控制的光闹钟灯，具备时间显示、闹钟提醒、贪睡、日出模拟、灯光模式切换和断电记忆功能。主控为 ESP32，基于 Arduino / PlatformIO 框架开发。
+一款支持离线语音控制的光闹钟灯，具备时间显示、闹钟提醒、贪睡、日出模拟、灯光模式切换和断电记忆功能。主控为 **ESP32-S3 N16R8**（16MB Flash / 8MB PSRAM，原生 USB），基于 Arduino / PlatformIO 框架开发。
 
 ## 功能特性
 
@@ -33,7 +33,18 @@ ESP32 主控
 
 ## 硬件清单
 
-见 [hardware/bom.md](hardware/bom.md)。
+主控已确定为 **ESP32-S3 N16R8**（详见 [hardware/bom.md](hardware/bom.md)，含选型变更说明、电流估算与引脚规划）。
+
+其他模块与辅助材料：
+
+- 灯：WS2812B 灯环 16/24 颗 或 灯带 30 颗
+- 时钟：DS3231 RTC 模块（掉电保持）
+- 显示：0.96 寸 SSD1306 OLED（I2C）
+- 语音：支持 UART 输出的离线语音模块（可自定词条）
+- 按键：轻触按键 4 个（MODE / ADD / SUB / OK）
+- 蜂鸣器：有源蜂鸣器
+- 电源：5V / 2A
+- 辅助：面包板、杜邦线、1000μF 电容、330Ω 电阻、CR2032、USB 线、万用表（天宇 T21L）
 
 ## 引脚连接
 
@@ -41,8 +52,8 @@ ESP32 主控
 
 ## 开发环境
 
-- Arduino IDE（第一周跑通原型）
-- VS Code + PlatformIO（正式工程，第 4 天起迁移）
+- Arduino IDE（第一周跑通原型，开发板选 `ESP32-S3 Dev Module`）
+- VS Code + PlatformIO（正式工程，`platformio.ini` 已配置 `esp32-s3-devkitc-1` + PSRAM 开启，第 4 天起迁移）
 
 ## 代码工程结构
 
@@ -55,6 +66,13 @@ voice-light-alarm/
 ├── platformio.ini
 └── src/         main + 6 个模块（light/clock/alarm/voice/ui/storage）
 ```
+
+## 当前进度
+
+- M0 立项完成：本地仓库 + GitHub 远程仓库已建，立项书 / 需求文档 / 预研计划 / 问题记录模板齐备
+- 硬件已下单：ESP32-S3 N16R8、天宇 T21L 万用表等，等待到货
+- 工程骨架已就绪：`platformio.ini` + `src/` 六模块 `.h/.cpp` 空骨架 + 状态机枚举（见 `src/app_state.h`）
+- 等待期任务：装 PlatformIO、预习 ESP32-S3 引脚与 3.3V→5V 电平方案（详见 [docs/今日任务.md](docs/今日任务.md)）
 
 ## 使用说明
 
@@ -79,7 +97,8 @@ voice-light-alarm/
 
 ## 已知问题
 
-（见 docs/问题记录.md）
+- ESP32-S3 为 **3.3V 逻辑**，WS2812 数据线需 5V，到货后需电平转换（74HCT245 / 二极管方案），详见 [docs/预研计划.md](docs/预研计划.md) R1
+- （更多问题见 [docs/问题记录.md](docs/问题记录.md)）
 
 ## 后续计划
 
