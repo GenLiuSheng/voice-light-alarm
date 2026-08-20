@@ -72,7 +72,7 @@ voice-light-alarm/
 - M0 立项完成：本地仓库 + GitHub 远程仓库已建，立项书 / 需求文档 / 预研计划 / 问题记录模板齐备
 - 硬件已下单：ESP32-S3 N16R8、天宇 T21L 万用表等，等待到货
 - 工程骨架已就绪：`platformio.ini` + `src/` 六模块 `.h/.cpp` 空骨架 + 状态机枚举（见 `src/app_state.h`）；`config.h` 的引脚占位符尚待定稿，因此尚未完成首次 Build 验证
-- Day 2（交接版）：先配置 Arduino IDE / PlatformIO、消除编译占位符并预写 M1 例程；硬件状态待确认，未到货前不进行接线或实测（详见 [docs/Day2任务清单.md](docs/Day2任务清单.md)）
+- Day 2（交接版）：先配置 Arduino IDE / PlatformIO 并学习工程结构与 WS2812 基础；今日不确定引脚、不写 M1 例程，硬件状态待确认，未到货前不进行接线或实测（详见 [docs/Day2任务清单.md](docs/Day2任务清单.md)）
 
 ## 使用说明
 
