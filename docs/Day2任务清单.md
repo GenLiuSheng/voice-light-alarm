@@ -34,7 +34,7 @@
 - [x] 开发板管理器 → 搜 `esp32` → 安装（3.x 版本，支持 S3）
 - [x] 选板 `ESP32S3 Dev Module`，**编译空 Blink**（无板也能 Compile，验证工具链）
 - [ ] ⚠️ USB 驱动**先不装**：板没到，无法确认 USB 芯片（CH340 / CP210x / 原生 USB-CDC）。到货第一天再确认
-- [ ] 完成后截图 + commit：`chore: Arduino IDE 配置 ESP32-S3 完成`
+- [x] 完成后截图 + commit：`chore: Arduino IDE 配置 ESP32-S3 完成`（commit 已随本次推送完成，截图自行补录）
 
 ### 2. VS Code + PlatformIO 装好，了解工程结构
 - [x] 已下载 VS Code
@@ -73,8 +73,8 @@
 ### 7. 交接与远程同步
 
 - [x] 完成项目交接：确认 M0 完成、M1 未开始、六模块仍为骨架
-- [ ] 将本地 Day 2 文档提交并推送到 GitHub `main`
-- [ ] 推送后核对 GitHub 最新 commit 与本地 `HEAD` 一致
+- [x] 将本地 Day 2 文档提交并推送到 GitHub `main`
+- [x] 推送后核对 GitHub 最新 commit 与本地 `HEAD` 一致
 - [ ] 如旧 WorkBuddy 对话中的 GitHub PAT 尚未撤销，在 GitHub 中撤销它；后续推送仅使用新的短期令牌或本机凭证
 
 ---
@@ -179,7 +179,7 @@
 - [ ] 电压模块规格核对与供电方案整理（未完成）
 - [ ] ESP32-S3 / WS2812 / SU-03T 基础学习（未完成）
 - [ ] M1 例程（明确延后，尚未编写）
-- [ ] 本地与 GitHub `main` 已同步
+- [x] 本地与 GitHub `main` 已同步
 
 ### 遇到问题
 - 暂无；今日仅完成 Arduino IDE 编译验证与 VS Code 下载。
