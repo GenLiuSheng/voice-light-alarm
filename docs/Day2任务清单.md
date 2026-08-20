@@ -2,7 +2,7 @@
 
 > 角色：大三实习生（ESP32-S3 路线）
 > 阶段：**硬件到货状态待用户确认**；在未确认到货前，按「零硬件」路径执行。
-> Mentor 验收节点：节点 1 立项完成 ✅；今日推进「工具链就绪 + 方案落地（纯软件，不碰硬件）」
+> Mentor 验收节点：节点 1 立项完成 ✅；今日实际完成：**Arduino IDE 已可编译 ESP32-S3，VS Code 已下载**。其余项目未完成。
 > 关联文档：hardware/bom.md ｜ docs/预研计划.md ｜ docs/需求文档.md
 
 ---
@@ -28,16 +28,17 @@
 ### 1. Arduino IDE 配置到能编译 ESP32-S3
 > Arduino IDE 2.x 免费无激活码；"正确激活"= 配置到能开发 ESP32-S3。
 
-- [ ] 下载安装 Arduino IDE 2.x
-- [ ] 文件 → 首选项 → 附加开发板网址：
+- [x] 下载安装 Arduino IDE 2.x
+- [x] 文件 → 首选项 → 附加开发板网址：
   `https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json`
-- [ ] 开发板管理器 → 搜 `esp32` → 安装（3.x 版本，支持 S3）
-- [ ] 选板 `ESP32S3 Dev Module`，**编译空 Blink**（无板也能 Compile，验证工具链）
+- [x] 开发板管理器 → 搜 `esp32` → 安装（3.x 版本，支持 S3）
+- [x] 选板 `ESP32S3 Dev Module`，**编译空 Blink**（无板也能 Compile，验证工具链）
 - [ ] ⚠️ USB 驱动**先不装**：板没到，无法确认 USB 芯片（CH340 / CP210x / 原生 USB-CDC）。到货第一天再确认
 - [ ] 完成后截图 + commit：`chore: Arduino IDE 配置 ESP32-S3 完成`
 
 ### 2. VS Code + PlatformIO 装好，了解工程结构
-- [ ] 若尚未安装：装 VS Code + PlatformIO 插件
+- [x] 已下载 VS Code
+- [ ] 安装 VS Code + PlatformIO 插件（尚未完成）
 - [ ] 打开 `platformio.ini`（已建好：`board = esp32-s3-devkitc-1` + PSRAM + 4 库）
 - [ ] 阅读 `platformio.ini` 与 `src/` 六模块职责，了解工程入口和配置文件位置
 - [ ] 记录首次 Build 的前置条件：`src/config.h` 的引脚仍为「待定」，待硬件与引脚方案确认后再填入
@@ -172,21 +173,22 @@
 ## 十、站会自检模板（今晚回填）
 
 ### 今天完成
-- [ ] Arduino IDE 配置 ESP32-S3 完成，能编译空 Blink
-- [ ] PlatformIO 工程编译通过
-- [ ] 电平转换模块规格已登记，供电方案 A/B 已写进 wiring.md
-- [ ] 引脚分配初稿 + SU-03T 资料已收集
-- [ ] 已完成 Arduino / PlatformIO / WS2812 基础学习；M1 例程延后编写
+- [x] Arduino IDE 配置 ESP32-S3 完成，能编译空 Blink
+- [x] VS Code 已下载
+- [ ] PlatformIO 插件安装与工程编译（未完成）
+- [ ] 电压模块规格核对与供电方案整理（未完成）
+- [ ] ESP32-S3 / WS2812 / SU-03T 基础学习（未完成）
+- [ ] M1 例程（明确延后，尚未编写）
 - [ ] 本地与 GitHub `main` 已同步
 
 ### 遇到问题
--
+- 暂无；今日仅完成 Arduino IDE 编译验证与 VS Code 下载。
 
 ### 解决方案
 -
 
 ### 明天计划
-- 继续预写 M2 时钟例程 / 等硬件到货执行「到货第一天核对清单」
+- 安装 PlatformIO 插件并熟悉工程结构；继续学习 ESP32-S3 与 WS2812 基础。硬件到货后再执行「到货第一天核对清单」。
 
 ---
 
