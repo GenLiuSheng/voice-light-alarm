@@ -2,6 +2,7 @@
 #define ALARM_CTRL_H
 
 #include <Arduino.h>
+#include "config.h"
 
 // 闹钟 / 贪睡 / 日出逻辑（FR3/FR4/FR5/FR6）
 class AlarmCtrl {
