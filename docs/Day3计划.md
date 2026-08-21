@@ -22,12 +22,18 @@ Day 2 把「工具链 + 方案 + 例程」三件事开了头，今日按依赖�
 
 ## 二、P0 必做（4 项，按依赖顺序）
 
-### 1. PlatformIO 工具链闭合（Day 2 第 2 项）
-- [ ] 安装 VS Code + PlatformIO 插件
-- [ ] 打开已有 `platformio.ini`（`board = esp32-s3-devkitc-1` + PSRAM + 4 库）
-- [ ] 阅读 `src/` 六模块职责与工程入口，确认 `config.h` 引脚仍为「待定」
-- [ ] 执行 **PlatformIO: Build**，骨架编译通过
-- [ ] 截图/记录 + commit：`chore: PlatformIO 工程编译通过`
+### 1. PlatformIO 工具链闭合（Day 2 第 2 项）✅ 已完成
+- [x] 安装 VS Code + PlatformIO 插件
+- [x] 打开已有 `platformio.ini`（`board = esp32-s3-devkitc-1` + PSRAM + 4 库）
+- [x] 阅读 `src/` 六模块职责与工程入口，确认 `config.h` 引脚仍为「待定」
+- [x] 执行 **PlatformIO: Build**，骨架编译通过
+- [x] 截图/记录 + commit：`fix: PlatformIO 工具链闭合 - 修正 DS3231 库名(northernwidget)与 config.h 头文件依赖，骨架编译通过(RAM 5.6%/Flash 7.9%)`
+
+> 📌 实测记录（2026-08-21）：
+> - 首次 Build 失败原因 1：`robtillaard/DS3231` 库名在 PlatformIO 不存在 → 改为 `northernwidget/DS3231 @ ^1.2.0`
+> - 失败原因 2：`alarm_ctrl.h` 用到 `SUNRISE_LEAD_DEFAULT` 但未包含 `config.h` → 补 `#include "config.h"`
+> - 成功：RAM 5.6%（18488 B / 327680 B），Flash 7.9%（264361 B / 3342336 B），耗时 48s
+> - 另：新增 `.gitignore` 排除 `.pio/` 构建产物
 
 ### 2. 设计文档定稿（Day 2 第 3/4 项）
 > 不依赖硬件，今天把方案写死，避免板到后临时拍脑袋。
@@ -77,7 +83,7 @@ Day 2 把「工具链 + 方案 + 例程」三件事开了头，今日按依赖�
 ## 六、站会自检模板（今晚回填）
 
 ### 今天完成
-- [ ] PlatformIO 工程编译通过
+- [x] PlatformIO 工程编译通过
 - [ ] 设计文档定稿（BOM 电压模块 + wiring 供电两路）
 - [ ] 引脚初稿 + SU-03T 8 命令映射
 - [ ] M1 例程预写并编译
