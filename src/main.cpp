@@ -8,13 +8,13 @@
 #include "config.h"
 #include "app_state.h"
 
-// 六模块（头文件待各模块实现）
-#include "light_ctrl.h"
-#include "clock_ctrl.h"
-#include "alarm_ctrl.h"
-#include "voice_ctrl.h"
-#include "ui_ctrl.h"
-#include "storage_ctrl.h"
+// 六模块（位于 src/modules/ 子目录）
+#include "modules/light_ctrl.h"
+#include "modules/clock_ctrl.h"
+#include "modules/alarm_ctrl.h"
+#include "modules/voice_ctrl.h"
+#include "modules/ui_ctrl.h"
+#include "modules/storage_ctrl.h"
 
 // ---- 模块实例 ----
 LightCtrl   lightCtrl;
